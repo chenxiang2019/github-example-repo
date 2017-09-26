@@ -39,3 +39,11 @@ github-example-repo: giving some advices on how to use github
 ## README
 
 ## References
+
+- [CloudLab Coding Style Guide, George Washington University](https://github.com/sdnfv/openNetVM/blob/master/style/styleguide.md#cloudlab-coding-style-guide)
+- [Pull Requests](https://developer.github.com/v3/pulls/)
+- [Github Guides](https://guides.github.com/)
+- [Documenting your projects on GitHub](https://guides.github.com/features/wikis/)
+- [Mastering Issues](https://guides.github.com/features/issues/)
+- [Mastering Markdown](https://guides.github.com/features/mastering-markdown/)
+
