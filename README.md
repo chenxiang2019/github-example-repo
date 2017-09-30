@@ -55,25 +55,25 @@
 
 在项目主页中，有一个名为"Create new file"的按钮，如图红色阴影部分所示：
 
-Figure: Create README
+![](https://github.com/Wasdns/github-example-repo/blob/master/figures/create-readme.png)
 
 点击进入创建界面，在"Name your file"一栏中，填入以`.md`后缀名结尾的文件名，如"README.md"：
 
-Figure: Name your file
+![](https://github.com/Wasdns/github-example-repo/blob/master/figures/name-your-file.png)
 
 Github默认在页面中显示使用"README.md", "readme.md", "README", "readme"作为名字的文件内容；其中在显示"README.md"和"readme.md"文档时，Github基于Markdown语法对其进行显示，比如将文件的内容：`# [标题名称]` 以一级标题的形式显示出来。
 
 紧接着就可以在下方的文本框中开始文档的撰写了。此外，Github支持在线的文档视图，点击如图红色方框 "Preview"(创建文件时显示)/"Preview changes"(修改文件时显示) 所示：
 
-Figure: Preview changes 1
+![](https://github.com/Wasdns/github-example-repo/blob/master/figures/preview-readme-1.png)
 
 即可将刚才新增/修改的内容以可视化的形式呈现：
 
-Figure: Preview changes 2
+![](https://github.com/Wasdns/github-example-repo/blob/master/figures/preview-readme-2.png)
 
 最后，合理在commit中描述该文档，并将该文档提交到你的项目中：
 
-Figure: Commit README
+![](https://github.com/Wasdns/github-example-repo/blob/master/figures/commit-readme.png)
 
 **方法三：**
 
