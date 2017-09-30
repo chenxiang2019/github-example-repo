@@ -38,7 +38,7 @@
 - 1.如何创建README文档；
 - 2.使用markdown语法记录、修改文档；
 - 3.通用的README文档格式；
-- 4.实验室Github项目，README文档参考规范及示例；
+- 4.实验室Github项目，README文档参考示例；
 - 5.现有大型商用项目README文档参考示例。
 
 ### 1.如何创建README文档
@@ -103,7 +103,19 @@ Github官方给出了[一种通用的README文档格式](https://guides.github.c
 - 荣誉：增加一个章节用于列举出项目的作者和做出贡献的开发者们。
 - 许可证：加入一个章节用于描述该项目的许可证。如何选择一个合适的许可证：[licensing guide](https://choosealicense.com/)，也可以参考阮一峰老师的教程：[如何选择开源许可证？](http://www.ruanyifeng.com/blog/2011/05/how_to_choose_free_software_licenses.html)
 
-### 4.实验室Github项目，README文档参考规范及示例
+### 4.实验室Github项目，README文档的参考示例
+
+标准语言：English。
+
+一个实验室Github项目，README文档参考示例由以下几个部分组成：
+
+- Chapter1: 项目名称(一级标题)+项目贡献描述(内容，以点列出)；
+- Chapter2: 安装所需的软件依赖，贴上对应的Installation Guide链接；
+- Chapter3: "Getting Start" 项目，即入门级项目，一个帮助用户快速上手的demo；
+- Chapter4: README主体部分，以项目贡献点列章节，每个章节阐述项目中对应于该贡献点的文件和子模块；
+- Chapter5: 相关工作，相关的论文或者Github项目，给出链接；
+- Chapter6: 问题向导，当用户遇到问题时解决问题的方法，包括给出社区链接、相关issues、联系邮件地址等等；
+- Chapter7: 引用的参考文献，作者信息。
 
 ### 5.现有大型商用项目README文档参考示例
 
