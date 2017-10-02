@@ -61,22 +61,32 @@
 
 错误示例：
 
+> Commit Title:
+
+```   
+按今天客户A的需求加了一个新功能
 ```
-Title:   
-         按今天客户A的需求加了一个新功能
-Content: 
-         修改了文件hello.c, beauty.c, stupidClient.c。
+
+> Commit Content: 
+
+```
+修改了文件hello.c, beauty.c, stupidClient.c。
 ```
 
 参考示例：
 
+> Commit Title:
+
 ```
-Title:   
-         2017/10/1：加入新功能"你今天真好看"
-Content: 
-         1.修改文件hello.c：hello函数返回参数类型(L101)；
-         2.修改文件beauty.c：将hello函数结果进行输出(L20)；
-         3.增加2017/10/1的客户需求到文件stupidClient.c中。
+2017/10/1：加入新功能"你今天真好看"
+```
+
+> Commit Content: 
+
+```
+1.修改文件hello.c：hello函数返回参数类型(L101)；
+2.修改文件beauty.c：将hello函数结果进行输出(L20)；
+3.增加2017/10/1的客户需求到文件stupidClient.c中。
 ```
 
 **3.注释信息应保留必要的信息：**
@@ -89,28 +99,38 @@ Content:
 
 错误示例：
 
+> Commit Title:
+
 ```
-Title:   
-         Fix bug // 它解决了什么问题？
-Content: 
-         // 这次commit是如何解决问题的？影响的文件有哪些？
-         <Empty> 
+Fix bug // 它解决了什么问题？
+```
+
+> Commit Content: 
+
+```
+// 这次commit是如何解决问题的？影响的文件有哪些？
+<Empty> 
 ```
 
 参考示例：
 
+> Commit Title:
+
 ```
-Title:   
-         Fix bug #1 // 它解决了issue#1，因此这次修改是必要的
-Content: 
-         // 这次commit通过...解决了问题。影响了文件src/hello.c。
-         1.修改文件src/hello.c：修改hello_beauty()函数的返回参数类型(L30)；
-         2.在单元测试中增加测试test1，避免#1的重复发生。
+Fix bug #1 // 它解决了issue#1，因此这次修改是必要的
+```
+
+> Commit Content: 
+
+```
+// 这次commit通过...解决了问题。影响了文件src/hello.c。
+1.修改文件src/hello.c：修改hello_beauty()函数的返回参数类型(L30)；
+2.在单元测试中增加测试test1，避免#1的重复发生。
 ```
 
 此外，有一些commit完全没有必要，或者对于该项目毫无意义，比如：
 
-错误示例1：小陈是个强迫症，他将文件A中所有换行的左括号改为了不换行，提交了上去，同时刷了一下KPI，心里美滋滋的。
+错误示例1：小陈为了刷KPI(Key Performance Indicator，关键绩效指标)，将文件A中所有的空行删除，做了一次提交，心里美滋滋的。
 
 错误示例2：负责在Github上进行某个项目开发的小李被开除了，被迫离开了现在的公司；在离开前，她将本地仓库中所有的内容删除，并将这些修改提交到了项目中，以此宣泄心中的愤恨。
 
@@ -126,9 +146,11 @@ Content:
 
 ![](https://github.com/Wasdns/github-example-repo/blob/master/figures/github-desktop-history.png)
 
-(2)如果某次提交修改的范围非常大，即改动了非常多的文件，建议划分为多次commit，每次提交一个子模块并加以对应信息的说明；如果某次提交修改的范围较小，比如只修改了一个文件中某个变量的赋值操作，可以酌情与其他commit合并为一个commit，在注释信息中说明这一点即可。
+(2)在使用命令行进行提交时，通常使用`git commit -m '注释信息'`来填写commit注释信息，但是`-m`参数适合单行注释，对于多行的commit注释来说是不合适的。这里推荐使用`git commit -v`命令，会自动跳出文本栏以供commit注释信息的编辑，其中文本的首行将作为commit的标题，剩余部分将作为补充信息。
 
-(3)阮一峰老师写了一篇关于Github commit注释信息的博客：[Commit message 和 Change log 编写指南](http://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html)，介绍了AngularJS团队的commit注释信息格式，这里推荐给大家。
+(3)如果某次提交修改的范围非常大，即改动了非常多的文件，建议划分为多次commit，每次提交一个子模块并加以对应信息的说明；如果某次提交修改的范围较小，比如只修改了一个文件中某个变量的赋值操作，可以酌情与其他commit合并为一个commit，在注释信息中说明这一点即可。
+
+(4)阮一峰老师写了一篇关于Github commit注释信息的博客：[Commit message 和 Change log 编写指南](http://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html)，介绍了AngularJS团队的commit注释信息格式，这里推荐给大家。
 
 ```
 <type>(<scope>): <subject>
@@ -198,6 +220,7 @@ Github默认在页面中显示使用"README.md", "readme.md", "README", "readme"
 
 这里为读者提供了一些用于掌握基本的Markdown语法的参考资料，包括：
 
+- [极简MarkDown排版介绍（How to）](http://www.cnblogs.com/math/p/se-tools-001.html)
 - [Markdown快速入门](http://wowubuntu.com/markdown/basic.html)
 - [Marstering Markdown](https://guides.github.com/features/mastering-markdown/)
 
@@ -246,6 +269,7 @@ Github官方给出了[一种通用的README文档格式](https://guides.github.c
 - [AngularJS Git Commit Message Conventions](https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/edit#heading=h.uyo6cb12dt6w)
 - [Documenting your projects on GitHub](https://guides.github.com/features/wikis/)
 - [Mastering Issues](https://guides.github.com/features/issues/)
+- [极简MarkDown排版介绍（How to）](http://www.cnblogs.com/math/p/se-tools-001.html)
 - [Markdown快速入门](http://wowubuntu.com/markdown/basic.html)
 - [Mastering Markdown](https://guides.github.com/features/mastering-markdown/)
 - [setting guidelines for repository contributors](https://help.github.com/articles/setting-guidelines-for-repository-contributors/)
