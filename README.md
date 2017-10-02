@@ -29,29 +29,23 @@
 
 ## 二、提交(commit)的注释信息
 
-- 多处改动：划分为多个明确的改动类。
-- 小改动：是否必要？是否能够和其他改动合并一起提交？
-
 对于一个commit来说，一个完备的注释信息有助于让其他人了解你的这次提交做了什么工作。例如，项目管理员对PR进行code review时需要对于该PR的每一次提交进行审核，如果每次提交的注释信息都非常简单/杂乱，那么对于code reviewer来说是非常不友好的：他需要翻看你每一次文件的修改记录来判断你的这次提交做了什么工作。
 
 一个规范的commit有这样的几个特点：
 
-- 1.注释信息的标题有一句清晰的概述；
-- 2.注释信息简洁明了，同时保留必要信息；
-- 3.注释信息的拓展描述中，对于每一处的修改都有清晰的记录；
-- 4.必要性；
+- 1.注释信息的标题有一句清晰的概述，且主体内容简洁明了；
+- 2.注释信息的拓展描述中，对于每一处的修改都有清晰的记录；
+- 3.注释信息应保留必要的信息。
 
-**1.注释信息的标题有一句清晰的概述：**
+**1.注释信息的标题有一句清晰的概述，且主体内容简洁明了：**
 
-标题至少需要有一句完整的句子来说明本次提交做了哪些工作。在大部分同学的github中，每次提交的注释信息通常只有"更新"、"修改"几个单词，其他开发者自然很困惑：到底你更新了什么、修改了什么？只能通过查阅详细信息来查看这次commit的具体修改。一个参考的规范注释信息标题的格式为`文件名：简述改动信息`。
+标题至少需要有一句完整的句子(建议少于50字)来说明本次提交做了哪些工作。在大部分同学的github中，每次提交的注释信息通常只有"更新"、"修改"几个单词，其他开发者自然很困惑：到底你更新了什么、修改了什么？只能通过查阅详细信息来查看这次commit的具体修改。一个参考的规范注释信息标题的格式为`文件名：简述改动信息`。
 
-错误示例：`提交`，`更新`，`发布`；
+错误示例：`fix bug`，`更新`，`发布`；
 
 参考示例：`文件名：简述改动信息`，如：`README.md: 更新第三章，加入了对commit注释信息的描述`。
 
-**2.注释信息简洁明了，同时保留必要信息：**
-
-第二点要求注释信息尽量简洁明了，不加入过多的不必要信息；此外要体现出注释信息的目的，并且保留必要信息。
+此外，要求注释信息的主体内容在能让别人看懂的情况下尽量简洁明了，不加入过多的不必要信息。
 
 错误示例1：`我把第二段中女神的代码给删除了。` 其中`女神的代码`是不明确且不必要的，而且没有体现出本次提交的目的。
 
@@ -61,7 +55,7 @@
 
 参考示例2：`增加"你今天真好看"功能：修改hello.c中函数hello()的返回参数类型。`
 
-**3.注释信息的拓展描述中，对于每一处的修改都有清晰的记录：**
+**2.注释信息的拓展描述中，对于每一处的修改都有清晰的记录：**
 
 如果一个提交修改了项目中的多个文件/模块，可以将这些修改的共同点，如`加入新功能"你今天真好看"`，作为提交注释信息的标题，并将这些修改的具体信息在注释信息的文本栏中分点列出。
 
@@ -80,29 +74,84 @@ Content:
 Title:   
          2017/10/1：加入新功能"你今天真好看"
 Content: 
-         1.修改文件hello.c中的第101行：hello函数返回参数类型；
-         2.修改文件beauty.c中的第20行：将hello函数结果进行输出；
+         1.修改文件hello.c：hello函数返回参数类型(L101)；
+         2.修改文件beauty.c：将hello函数结果进行输出(L20)；
          3.增加2017/10/1的客户需求到文件stupidClient.c中。
 ```
 
-**4.必要性：**
+**3.注释信息应保留必要的信息：**
 
-有一些commit完全没有必要，或者对于该项目毫无意义，比如：
+倘若你认为这一次的commit是有必要的，那么请在注释说明中说明以下必要的信息：
 
-错误实例1：小陈是个强迫症，他将文件A中所有换行的左括号改为了不换行，提交了上去，同时刷了一下KPI，心里美滋滋的。
+- 1.为什么这次修改是必要的，它解决了什么问题/它的目的是什么？
+- 2.这次commit是如何解决问题/达到上述目的的？
+- 3.影响的文件有哪些？
 
-错误实例2：负责在Github上进行某个项目开发的小李被开除了，被迫离开了现在的公司；在离开前，她将本地仓库中所有的内容删除，并将这些修改提交到了项目中，以此宣泄心中的愤恨。
+错误示例：
+
+```
+Title:   
+         Fix bug // 它解决了什么问题？
+Content: 
+         // 这次commit是如何解决问题的？影响的文件有哪些？
+         <Empty> 
+```
+
+参考示例：
+
+```
+Title:   
+         Fix bug #1 // 它解决了issue#1，因此这次修改是必要的
+Content: 
+         // 这次commit通过...解决了问题。影响了文件src/hello.c。
+         1.修改文件src/hello.c：修改hello_beauty()函数的返回参数类型(L30)；
+         2.在单元测试中增加测试test1，避免#1的重复发生。
+```
+
+此外，有一些commit完全没有必要，或者对于该项目毫无意义，比如：
+
+错误示例1：小陈是个强迫症，他将文件A中所有换行的左括号改为了不换行，提交了上去，同时刷了一下KPI，心里美滋滋的。
+
+错误示例2：负责在Github上进行某个项目开发的小李被开除了，被迫离开了现在的公司；在离开前，她将本地仓库中所有的内容删除，并将这些修改提交到了项目中，以此宣泄心中的愤恨。
 
 不提交没有必要、毫无意义的commit是每一个项目成员应该遵守的规范。
+
+**一些建议：**
+
+(1)个人推荐以Github的客户端，如[Github Desktop](https://desktop.github.com/)为主、命令行为辅来进行commit提交，写提交信息时的效果图如下：
+
+![](https://github.com/Wasdns/github-example-repo/blob/master/figures/github-desktop-commit.png)
+
+此外，还可以在desktop上查看历史的提交记录：
+
+![](https://github.com/Wasdns/github-example-repo/blob/master/figures/github-desktop-history.png)
+
+(2)如果某次提交修改的范围非常大，即改动了非常多的文件，建议划分为多次commit，每次提交一个子模块并加以对应信息的说明；如果某次提交修改的范围较小，比如只修改了一个文件中某个变量的赋值操作，可以酌情与其他commit合并为一个commit，在注释信息中说明这一点即可。
+
+(3)阮一峰老师写了一篇关于Github commit注释信息的博客：[Commit message 和 Change log 编写指南](http://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html)，介绍了AngularJS团队的commit注释信息格式，这里推荐给大家。
+
+```
+<type>(<scope>): <subject>
+// 空一行
+<body>
+// 空一行
+<footer>
+```
+
+**拓展阅读：**
+
+- [写好 Git Commit 信息的 7 个建议](http://blog.jobbole.com/92713/)
+- [Commit message 和 Change log 编写指南](http://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html)
+- [AngularJS Git Commit Message Conventions](https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/edit#heading=h.uyo6cb12dt6w)
 
 ## 三、README形式的Github文档撰写
 
 一个规范化、详细的文档是一个优秀项目必不可少的内容。在Github上有两种撰写文档的方式，一种是"README"，另一种是wiki，本节主要介绍笔者在使用README进行文档记录的一些经验，主要包括：
 
 - 1.如何创建README文档；
-- 2.使用markdown语法记录、修改文档；
+- 2.使用Markdown语法记录、修改文档；
 - 3.通用的README文档格式；
-- 4.实验室Github项目，README文档参考示例；
+- 4.实验室Github科研型项目，README文档的参考示例；
 - 5.现有大型商用项目README文档参考示例。
 
 ### 1.如何创建README文档
@@ -167,11 +216,11 @@ Github官方给出了[一种通用的README文档格式](https://guides.github.c
 - 荣誉：增加一个章节用于列举出项目的作者和做出贡献的开发者们。
 - 许可证：加入一个章节用于描述该项目的许可证。如何选择一个合适的许可证：[licensing guide](https://choosealicense.com/)，也可以参考阮一峰老师的教程：[如何选择开源许可证？](http://www.ruanyifeng.com/blog/2011/05/how_to_choose_free_software_licenses.html)
 
-### 4.实验室Github项目，README文档的参考示例
+### 4.实验室Github科研型项目，README文档的参考示例
 
 标准语言：English。
 
-一个实验室Github项目，README文档参考示例由以下几个部分组成：
+一个实验室Github科研型项目，README文档参考示例由以下几个部分组成：
 
 - Chapter1: 项目名称(一级标题)+项目贡献描述(内容，以点列出)；
 - Chapter2: 安装所需的软件依赖，贴上对应的Installation Guide链接；
@@ -186,12 +235,15 @@ Github官方给出了[一种通用的README文档格式](https://guides.github.c
 - [Baidu, brpc](https://github.com/brpc/brpc)
 - [Barefoot, behavioral-model](https://github.com/p4lang/behavioral-model)
 - [Google, protobuf](https://github.com/google/protobuf)
-- [DeepMind, pysc2](https://github.com/deepmind/pysc2)
 
 ## 四、参考资料
 
 - [CloudLab Coding Style Guide, George Washington University](https://github.com/sdnfv/openNetVM/blob/master/style/styleguide.md#cloudlab-coding-style-guide)
 - [Github Guides](https://guides.github.com/)
+- [Git 写出好的 commit message](https://ruby-china.org/topics/15737)
+- [写好 Git Commit 信息的 7 个建议](http://blog.jobbole.com/92713/)
+- [Commit message 和 Change log 编写指南](http://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html)
+- [AngularJS Git Commit Message Conventions](https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/edit#heading=h.uyo6cb12dt6w)
 - [Documenting your projects on GitHub](https://guides.github.com/features/wikis/)
 - [Mastering Issues](https://guides.github.com/features/issues/)
 - [Markdown快速入门](http://wowubuntu.com/markdown/basic.html)
